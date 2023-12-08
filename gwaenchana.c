@@ -1,6 +1,6 @@
 /*
 
-JUDUL : 
+JUDUL : PROGRAM PEMESANAN MAKANAN
 
 DEKLARASI :
 
@@ -21,7 +21,10 @@ void cls() {
 }
 
 void greeting() {
-    printf("Halo! Selamat datang di (...). \n");
+    printf("================================= \n");
+    printf("        SELAMAT DATANG DI         \n");
+    printf("      GWAENCHANA RESTAURANT       \n");
+    printf("================================= \n");
 }
 
 void thanks() {
@@ -30,8 +33,8 @@ void thanks() {
 
 
 //Variabel Global
-//...
-
+int option_K, option_MA, option_MI, option_D;
+char choice;
 
 //Fungsi Hitung
 //...
@@ -39,6 +42,24 @@ void thanks() {
 
 //Fungsi Main
 int main() {
+
+    do {
+        cls();
+
+    greeting();
+
+    printf("======================= \n");
+    printf(" MAU PESAN APA? \n");
+    printf("======================= \n");
+    printf("1. MAKANAN \n");
+    printf("2. MINUMAN \n");
+    printf("3. DESSERT \n");
+    printf("======================= \n");
+    printf("Silahkan masukkan pilihan Anda : \n");
+    scanf("%d", option_K);
+
+
+    } while ;
 
 
     return 0;
