@@ -55,12 +55,52 @@ int main() {
     printf("2. MINUMAN \n");
     printf("3. DESSERT \n");
     printf("======================= \n");
-    printf("Silahkan masukkan pilihan Anda : \n");
-    scanf("%d", option_K);
+    printf("Silahkan masukkan pilihan Anda : ");
+    scanf("%d", &option_K);
+    printf("\n");
 
+        if (option_K == 1) {
+            printf("==================================== \n");
+            printf("        M E N U  M A K A N A N       \n");
+            printf("==================================== \n");
+            printf("    \n");
+            printf("    \n");
+            printf("    \n");
+            printf("    \n");
+            printf("    \n");
+            printf("    \n");
+        }
+        else if (option_K == 2) {
+            printf("==================================== \n");
+            printf("        M E N U  M I N U M A N       \n");
+            printf("==================================== \n");
+            printf("    \n");
+            printf("    \n");
+            printf("    \n");
+            printf("    \n");
+            printf("    \n");
+            printf("    \n");
+        }
+        else if (option_K == 3) {
+            printf("=============================================== \n");
+            printf("            M E N U  D E S S E R T              \n");
+            printf("=============================================== \n");
+            printf(" NO | DESSERT                | HARGA           |\n");
+            printf("----------------------------------------------- \n");
+            printf("  1 | Bungeoppang            | Rp10.000        |\n");
+            printf("  2 |                                           \n");
+            printf("4.  \n");
+            printf("5.  \n");
+            printf("=============================================== \n");
+            printf("Silahkan masukkan pilihan Anda : ");
+            scanf("%d", &option_D);
+        }
+        else {
+            printf("Mohon maaf, input yang Anda masukkan tidak cocok dengan opsi yang tersedia.\n\n");
+            while (getchar() != '\n');
+        }
 
-    } while ;
-
+    } while (1);
 
     return 0;
 }
