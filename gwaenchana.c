@@ -89,15 +89,22 @@ int main() {
             scanf("%d", &jumlah);
         }
         else if (option_K == 2) {
-            printf("==================================== \n");
-            printf("        M E N U  M I N U M A N       \n");
-            printf("==================================== \n");
-            printf("    \n");
-            printf("    \n");
-            printf("    \n");
-            printf("    \n");
-            printf("    \n");
-            printf("    \n");
+            printf("========================================= \n");
+            printf("        M E N U  M I N U M A N            \n");
+            printf("========================================= \n");
+            printf("| NO |    MINUMAN      |      HARGA      |\n");
+            printf("+----+-----------------+-----------------+\n");
+            printf("| 1  | Soju            | Rp        75.000|\n");
+            printf("| 2  | Makgeolli       | Rp        65.000|\n");
+            printf("| 3  | Sikhye          | Rp        16.000|\n");
+            printf("| 4  | Yuja-cha        | Rp       169.000|\n");
+            printf("| 5  | Mujigae         | Rp        15.000|\n");
+            printf("| 6  | Sujeonggwa      | Rp        80.000|\n");
+            printf("| 7  | Bokbunja-ju     | Rp       150.000|\n");
+            printf("| 8  | Teh             | Rp        50.000|\n");
+            printf("| 9  | Chamisul        | Rp        70.000|\n");
+            printf("| 10 | Omija Tea       | Rp       300.000|\n");
+            printf("+====+=================+=================+\n");
             printf("Silahkan masukkan pilihan Anda : ");
             scanf("%d", &option_D);
             printf("Masukkan jumlah : ");
