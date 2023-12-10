@@ -34,12 +34,35 @@ void thanks() {
 
 //Variabel Global
 int option_K, option_MA, option_MI, option_D;
-int jumlah;
+int jumlah, harga, harga_MA, harga_MI, harga_D, total;
 float ppn;
 char choice;
 
 //Fungsi Hitung
-//...
+int HargaMenu() {
+    int harga_MA[] = {30000, 25000, 25000, 30000, 35000, 25000, 25000, 30000, 75000, 35000, 25000, 45000, 150000, 45000, 40000};
+    int harga_MI[] = {75000, 65000, 16000, 169000, 15000, 80000, 150000, 50000, 70000, 300000};
+    int harga_D[] = {10000, 25000, 8000, 30000, 15000};
+
+    harga = 0;
+
+    if (option_K == 1) {
+        harga = harga_MA[option_MA - 1];
+    }
+    else if (option_K == 2) {
+        harga = harga_MI[option_MA - 1];
+    }
+    else if (option_K == 3) {
+        harga = harga_D[option_D - 1];
+    }
+
+    return harga;
+}
+
+
+int HitungPembayaran(struct Pesanan pesanan[]) {
+
+}
 
 
 //Fungsi Main
@@ -84,15 +107,15 @@ int main() {
             printf("| 15 | Kimchi Jjigae (stew)   | Rp        40.000|\n");
             printf("+====+========================+=================+\n");
             printf("Silahkan masukkan pilihan Anda : ");
-            scanf("%d", &option_D);
+            scanf("%d", &option_MA);
             printf("Masukkan jumlah : ");
             scanf("%d", &jumlah);
         }
         else if (option_K == 2) {
-            printf("========================================= \n");
-            printf("        M E N U  M I N U M A N            \n");
-            printf("========================================= \n");
-            printf("| NO |    MINUMAN      |      HARGA      |\n");
+            printf("+========================================+\n");
+            printf("|         M E N U  M I N U M A N         |\n");
+            printf("+====+=================+=================+\n");
+            printf("| NO |     MINUMAN     |      HARGA      |\n");
             printf("+----+-----------------+-----------------+\n");
             printf("| 1  | Soju            | Rp        75.000|\n");
             printf("| 2  | Makgeolli       | Rp        65.000|\n");
@@ -106,7 +129,7 @@ int main() {
             printf("| 10 | Omija Tea       | Rp       300.000|\n");
             printf("+====+=================+=================+\n");
             printf("Silahkan masukkan pilihan Anda : ");
-            scanf("%d", &option_D);
+            scanf("%d", &option_MI);
             printf("Masukkan jumlah : ");
             scanf("%d", &jumlah);
         }
