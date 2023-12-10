@@ -98,7 +98,7 @@ int main() {
             printf("| NO |     DESSERT     |      HARGA      |\n");
             printf("+----+-----------------+-----------------+\n");
             printf("| 1  | Bungeoppang     | Rp        10.000|\n");
-            printf("| 2  | Patbingsoo      | Rp        25.ooo|\n");
+            printf("| 2  | Patbingsoo      | Rp        25.000|\n");
             printf("| 3  | Hotteok         | Rp         8.000|\n");
             printf("| 4  | Hwachae         | Rp        30.000|\n");
             printf("| 5  | Jeonggwa        | Rp        15.000|\n");
