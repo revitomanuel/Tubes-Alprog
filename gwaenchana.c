@@ -62,15 +62,27 @@ int main() {
     printf("\n");
 
         if (option_K == 1) {
-            printf("==================================== \n");
-            printf("        M E N U  M A K A N A N       \n");
-            printf("==================================== \n");
-            printf("    \n");
-            printf("    \n");
-            printf("    \n");
-            printf("    \n");
-            printf("    \n");
-            printf("    \n");
+            printf("+===============================================+\n");
+            printf("|             M E N U  M A K A N A N            |\n");
+            printf("+====+========================+=================+\n");
+            printf("| NO |         MAKANAN        |      HARGA      |\n");
+            printf("+----+------------------------+-----------------+\n");
+            printf("| 1  | Kimbab                 | Rp        30.000|\n");
+            printf("| 2  | Tteokbokki             | Rp        25.000|\n");
+            printf("| 3  | Ramen                  | Rp        25.000|\n");
+            printf("| 4  | Odeng                  | Rp        30.000|\n");
+            printf("| 5  | Bibimbap               | Rp        35.000|\n");
+            printf("| 6  | Jajangmyeon            | Rp        25.000|\n");
+            printf("| 7  | Japchae                | Rp        25.000|\n");
+            printf("| 8  | Rabokki                | Rp        30.000|\n");
+            printf("| 9  | Bulgogi                | Rp        75.000|\n");
+            printf("| 10 | Korean Fried Chicken   | Rp        35.000|\n");
+            printf("| 11 | Spicy Cold Noodle      | Rp        25.000|\n");
+            printf("| 12 | Ginseng Chicken Soup   | Rp        45.000|\n");
+            printf("| 13 | Samgyeopsal            | Rp       150.000|\n");
+            printf("| 14 | Korean Stew (Jjigae)   | Rp        45.000|\n");
+            printf("| 15 | Kimchi Jjigae (stew)   | Rp        40.000|\n");
+            printf("+====+========================+=================+\n");
             printf("Silahkan masukkan pilihan Anda : ");
             scanf("%d", &option_D);
             printf("Masukkan jumlah : ");
