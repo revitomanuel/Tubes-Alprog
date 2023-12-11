@@ -33,37 +33,46 @@ void thanks() {
 
 
 //Variabel Global
-int option_K, option_MA, option_MI, option_D;
-int jumlah, harga, harga_MA, harga_MI, harga_D, total;
+int option_P, option_M, option_MP;
+int no_meja, jumlah, harga, harga_MA, harga_MI, harga_D, total, countPesanan, uang_bayar, uang_kembalian;
 float ppn;
+char nama[55];
 char choice;
 
 //Fungsi Hitung
 int HargaMenu() {
     int harga_MA[] = {30000, 25000, 25000, 30000, 35000, 25000, 25000, 30000, 75000, 35000, 25000, 45000, 150000, 45000, 40000};
-    int harga_MI[] = {75000, 65000, 16000, 169000, 15000, 80000, 150000, 50000, 70000, 300000};
+    int harga_MI[] = {75000, 65000, 22000, 20000, 18000, 29000, 250000, 25000, 20000, 10000};
     int harga_D[] = {10000, 25000, 8000, 30000, 15000};
 
     harga = 0;
 
-    if (option_K == 1) {
-        harga = harga_MA[option_MA - 1];
+    if (option_M >= 1 && option_M <= 15) {
+        harga = harga_MA[option_M - 1];
     }
-    else if (option_K == 2) {
-        harga = harga_MI[option_MA - 1];
+    else if (option_M >= 16 && option_M <= 25) {
+        harga = harga_MI[option_M - 16];
     }
-    else if (option_K == 3) {
-        harga = harga_D[option_D - 1];
+    else if (option_M >= 26 && option_M <= 30) {
+        harga = harga_D[option_M - 26];
     }
 
     return harga;
 }
 
 
-int HitungPembayaran(int harga, int jumlah) {
-    int total = harga * jumlah;
+int HitungPembayaran(int *harga, int *jumlah, int countPesanan) {
+    int total = 0;
+
+    harga = HargaMenu();
+
+    for (int i = 0; i < countPesanan; i++) {
+        total += harga[i] * jumlah[i];
+    }
+
     return total;
 }
+
 
 
 
@@ -75,89 +84,107 @@ int main() {
 
     greeting();
 
-    printf("+====================+\n");
-    printf("|   MAU PESAN APA?   |\n");
-    printf("+===+================+\n");
-    printf("| 1 | MAKANAN        |\n");
-    printf("| 2 | MINUMAN        |\n");
-    printf("| 3 | DESSERT        |\n");
-    printf("+===+================+\n");
-    printf("Silahkan masukkan pilihan Anda : ");
-    scanf("%d", &option_K);
+    printf("+======================+\n");
+    printf("|   METODE PEMESANAN   |\n");
+    printf("+----------------------+\n");
+    printf("| 1 | Dine In          |\n");
+    printf("| 2 | Take Away        |\n");
+    printf("+======================+\n");
+    printf("Masukkan metode pemesanan : ");
+    scanf("%d", &option_P);
     printf("\n");
 
-        if (option_K == 1) {
-            printf("+===============================================+\n");
-            printf("|             M E N U  M A K A N A N            |\n");
-            printf("+====+========================+=================+\n");
-            printf("| NO |         MAKANAN        |      HARGA      |\n");
-            printf("+----+------------------------+-----------------+\n");
-            printf("| 1  | Kimbab                 | Rp        30.000|\n");
-            printf("| 2  | Tteokbokki             | Rp        25.000|\n");
-            printf("| 3  | Ramen                  | Rp        25.000|\n");
-            printf("| 4  | Odeng                  | Rp        30.000|\n");
-            printf("| 5  | Bibimbap               | Rp        35.000|\n");
-            printf("| 6  | Jajangmyeon            | Rp        25.000|\n");
-            printf("| 7  | Japchae                | Rp        25.000|\n");
-            printf("| 8  | Rabokki                | Rp        30.000|\n");
-            printf("| 9  | Bulgogi                | Rp        75.000|\n");
-            printf("| 10 | Korean Fried Chicken   | Rp        35.000|\n");
-            printf("| 11 | Spicy Cold Noodle      | Rp        25.000|\n");
-            printf("| 12 | Ginseng Chicken Soup   | Rp        45.000|\n");
-            printf("| 13 | Samgyeopsal            | Rp       150.000|\n");
-            printf("| 14 | Korean Stew (Jjigae)   | Rp        45.000|\n");
-            printf("| 15 | Kimchi Jjigae (stew)   | Rp        40.000|\n");
-            printf("+====+========================+=================+\n");
-            printf("Silahkan masukkan pilihan Anda : ");
-            scanf("%d", &option_MA);
-            printf("Masukkan jumlah : ");
-            scanf("%d", &jumlah);
+    printf("Silahkan masukkan nama pemesan : ");
+    scanf("%s", &nama);
+
+        if (option_P == 1) {
+            printf("Silahkan masukkan nomor meja : ");
+            scanf("%d", &no_meja);
+            printf("\n");
         }
-        else if (option_K == 2) {
-            printf("+========================================+\n");
-            printf("|         M E N U  M I N U M A N         |\n");
-            printf("+====+=================+=================+\n");
-            printf("| NO |     MINUMAN     |      HARGA      |\n");
-            printf("+----+-----------------+-----------------+\n");
-            printf("| 1  | Soju            | Rp        75.000|\n");
-            printf("| 2  | Makgeolli       | Rp        65.000|\n");
-            printf("| 3  | Sikhye          | Rp        16.000|\n");
-            printf("| 4  | Yuja-cha        | Rp       169.000|\n");
-            printf("| 5  | Mujigae         | Rp        15.000|\n");
-            printf("| 6  | Sujeonggwa      | Rp        80.000|\n");
-            printf("| 7  | Bokbunja-ju     | Rp       150.000|\n");
-            printf("| 8  | Teh             | Rp        50.000|\n");
-            printf("| 9  | Chamisul        | Rp        70.000|\n");
-            printf("| 10 | Omija Tea       | Rp       300.000|\n");
-            printf("+====+=================+=================+\n");
-            printf("Silahkan masukkan pilihan Anda : ");
-            scanf("%d", &option_MI);
-            printf("Masukkan jumlah : ");
-            scanf("%d", &jumlah);
-        }
-        else if (option_K == 3) {
-            printf("+========================================+\n");
-            printf("|         M E N U  D E S S E R T         |\n");
-            printf("+====+=================+=================+\n");
-            printf("| NO |     DESSERT     |      HARGA      |\n");
-            printf("+----+-----------------+-----------------+\n");
-            printf("| 1  | Bungeoppang     | Rp        10.000|\n");
-            printf("| 2  | Patbingsoo      | Rp        25.000|\n");
-            printf("| 3  | Hotteok         | Rp         8.000|\n");
-            printf("| 4  | Hwachae         | Rp        30.000|\n");
-            printf("| 5  | Jeonggwa        | Rp        15.000|\n");
-            printf("+====+=================+=================+\n");
-            printf("Silahkan masukkan pilihan Anda : ");
-            scanf("%d", &option_D);
-            printf("Masukkan jumlah : ");
-            scanf("%d", &jumlah);
+        else if (option_P == 2) {
+            //Nanti di sini printf nomor antrian otomatis, setiap harinya akan keriset jd no 1 lagi
         }
         else {
-            printf("Mohon maaf, input yang Anda masukkan tidak cocok dengan opsi yang tersedia.\n\n");
-            while (getchar() != '\n');
+            printf("Mohon maaf, input yang Anda masukkan tidak valid.\n");
         }
 
-    } while (1);
+    printf("+=======================================================================================================================================+\n");
+    printf("|                                                              M   E   N   U                                                            |\n");
+    printf("+=======================================================================================================================================+\n");
+    printf("| NO |        MAKANAN         |      HARGA      | | NO |      MINUMAN      |      HARGA      | | NO |     DESSERT     |      HARGA      |\n");
+    printf("+----+------------------------+-----------------+ +----+-------------------+-----------------+ +----+-----------------+-----------------+\n");
+    printf("| 1  | Kimbab                 | Rp        30.000| | 16 | Soju              | Rp        75.000| | 26 | Bungeoppang     | Rp        10.000|\n");
+    printf("| 2  | Tteokbokki             | Rp        25.000| | 17 | Makgeolgi         | Rp        65.000| | 27 | Patbingsoo      | Rp        25.000|\n");
+    printf("| 3  | Ramen                  | Rp        25.000| | 18 | Omija Tea         | Rp        22.000| | 28 | Hotteok         | Rp         8.000|\n");
+    printf("| 4  | Odeng                  | Rp        30.000| | 19 | Peach Tea         | Rp        20.000| | 29 | Hwachae         | Rp        30.000|\n");
+    printf("| 5  | Bibimbap               | Rp        35.000| | 20 | Black Tea         | Rp        18.000| | 30 | Jeonggwa        | Rp        15.000|\n");
+    printf("| 6  | Jajangmyeon            | Rp        25.000| | 21 | Strawberry Latte  | Rp        29.000| |    |                 |                 |\n");
+    printf("| 7  | Japchae                | Rp        25.000| | 22 | Goguma Latte      | Rp        25.000| |    |                 |                 |\n");
+    printf("| 8  | Rabokki                | Rp        30.000| | 23 | Green Tea Latte   | Rp        25.000| |    |                 |                 |\n");
+    printf("| 9  | Bulgogi                | Rp        75.000| | 24 | Americano         | Rp        20.000| |    |                 |                 |\n");
+    printf("| 10 | Korean Fried Chicken   | Rp        35.000| | 25 | Mineral Watter    | Rp        10.000| |    |                 |                 |\n");
+    printf("| 11 | Spicy Cold Noodle      | Rp        25.000| |    |                   |                 | |    |                 |                 |\n");
+    printf("| 12 | Ginseng Chicken Soup   | Rp        45.000| |    |                   |                 | |    |                 |                 |\n");
+    printf("| 13 | Samgyeopsal            | Rp       150.000| |    |                   |                 | |    |                 |                 |\n");
+    printf("| 14 | Korean Stew (Jjigae)   | Rp        45.000| |    |                   |                 | |    |                 |                 |\n");
+    printf("| 15 | Kimchi Jjigae (stew)   | Rp        40.000| |    |                   |                 | |    |                 |                 |\n");
+    printf("+---------------------------------------------------------------------------------------------------------------------------------------+\n");
+    printf("| 0  | Selesai                                                                                                                          |\n");
+    printf("+=======================================================================================================================================+\n");
+    
+        do {
+        printf("Silahkan masukkan pilihan Anda : ");
+        scanf("%d", &option_M);
+
+            if (option_M >= 1 && option_M <= 30) {
+                printf("Masukkan jumlah : ");
+                scanf("%d", &jumlah);
+                printf("\n");
+            }
+            else if (option_M == 0) {
+                break;
+            }   
+            else {
+                printf("Mohon maaf, input yang Anda masukkan tidak valid.\n");
+            }
+        } while (1);
+
+    //Menampilkan rincian pesanan
+    //...
+
+    //Menampilkan metode pembayaran 
+    printf("+=======================+\n");
+    printf("|   METODE PEMBAYARAN   |\n");
+    printf("+-----------------------+\n");
+    printf("| 1. Cash               |\n");
+    printf("| 2. Debit              |\n");
+    printf("| 3. QRIS               |\n");
+    printf("+=======================+\n");
+    printf("Masukkan metode pembayaran : ");
+    scanf("%d", &option_MP);
+    printf("\n");
+    
+        if (option_MP == 1) {
+            printf("Masukkan uang tunai yang dibayarkan : ");
+            scanf("%d", &uang_bayar);
+            uang_kembalian = uang_bayar - total;
+            printf("Uang kembalian : Rp%d\n", uang_kembalian);
+        }
+        else if (option_MP == 2 || option_MP == 3) {
+            break;
+        }
+        else {
+            printf("Mohon maaf, input yang Anda masukkan tidak valid.\n");
+        }
+
+    printf("Apakah ada pesanan lain? (Y/N): "); 
+    scanf(" %c", &choice);
+
+    } while (choice == 'y' || choice =='Y');
+
+    cls();
+    thanks();
 
     return 0;
 }
