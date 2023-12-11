@@ -60,9 +60,11 @@ int HargaMenu() {
 }
 
 
-int HitungPembayaran(struct Pesanan pesanan[]) {
-
+int HitungPembayaran(int harga, int jumlah) {
+    int total = harga * jumlah;
+    return total;
 }
+
 
 
 //Fungsi Main
